@@ -11,3 +11,7 @@ images of INR Denominations.
 ### Workflow -> :workflow
 
 1. Json data retrieved from real time api of data.io for rates of currency in different languages.
+2. Added the firebase ML Kit to project
+3. Added Dataset in Auto ML section of the project
+4. Labelers were used to classify the image
+5. Image taken from gallery was labeled and processed for currency conversion.
