@@ -42,13 +42,13 @@ public class Adaptor extends RecyclerView.Adapter<Adaptor.MyViewHolder>  {
 
         int x = convertedValues.size();
 
-        if(convertedValues.get(position) < convertedValues.get(x-1))
+        if(convertedValues.get(position) > convertedValues.get(x-1))
         {
             holder.textCountry.setTextColor(Color.RED);
             holder.textAmount.setTextColor(Color.RED);
             holder.linearLayout.setBackgroundColor(Color.TRANSPARENT);
         }
-        else if(convertedValues.get(position) > convertedValues.get(x-1))
+        else if(convertedValues.get(position) < convertedValues.get(x-1))
         {
             holder.textCountry.setTextColor(Color.BLUE);
             holder.textAmount.setTextColor(Color.BLUE);
