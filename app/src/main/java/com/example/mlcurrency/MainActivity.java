@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity
                                             textPro.setText("Image Detected, Please Wait for Currency Conversion");
                                             pro.setVisibility(View.VISIBLE);
                                             Double indianValue = indianValue = Double.valueOf(text);
-                                            textView.setText(text + " Rs");
+                                            textView.setText(text + " Indian Rs");
                                             textView.setTextColor(Color.parseColor("#4CAF50"));
 
                                             EuroConverter(indianValue);
@@ -274,6 +275,30 @@ public class MainActivity extends AppCompatActivity
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.searchmenu,menu);
         MenuItem searchViewItem = menu.findItem(R.id.app_bar_search);
+        SearchView searchView = (SearchView)searchViewItem.getActionView();
+        final SearchView searchView1 = (SearchView) menu.findItem(R.id.app_bar_search).getActionView();
+
+        searchView1.setBackgroundColor(Color.TRANSPARENT);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                searchView1.setBackgroundColor(Color.TRANSPARENT);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+
+                if(s.isEmpty()) {
+                    searchView1.setBackgroundColor(Color.TRANSPARENT);
+                }
+                else{
+                    searchView1.setBackgroundColor(Color.rgb(31,31,31));
+                }
+
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 }

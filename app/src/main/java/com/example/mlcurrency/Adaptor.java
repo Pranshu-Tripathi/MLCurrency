@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,13 +17,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class Adaptor extends RecyclerView.Adapter<Adaptor.MyViewHolder>  {
+public class Adaptor extends RecyclerView.Adapter<Adaptor.MyViewHolder> implements Filterable {
 
     Context context;
     ArrayList<String> CountryCodes;
     ArrayList<Double> rates;
     ArrayList<Double> convertedValues;
-
+    ArrayList<String> FilteredCountryCodes;
+    ArrayList<Double> FilteredConvertedValues;
+    String search;
 
     public Adaptor(Context c,ArrayList<String> CC,ArrayList<Double> r , ArrayList<Double> cV)
     {
@@ -70,6 +74,12 @@ public class Adaptor extends RecyclerView.Adapter<Adaptor.MyViewHolder>  {
     public int getItemCount() {
         return rates.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return null;
+    }
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
